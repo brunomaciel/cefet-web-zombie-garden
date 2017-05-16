@@ -19,7 +19,6 @@ router.get('/', function(req, res, next) {
               people: people,
               success: req.flash('success'),
               error: req.flash('error'),
-
               peopleCountChange: req.flash('peopleCountChange'),
               zombieCountChange: req.flash('zombieCountChange')
             });
