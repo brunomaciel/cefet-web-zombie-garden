@@ -60,7 +60,7 @@ router.get('/new/', function(req, res) {
 
 /* POST registra uma nova pessoa */
 router.post('/', function(req, res) {
-  	var nome = db.escape(req.body.name);
+  	var nome = db.escape(req.params.name);
   	var query = 'INSERT INTO person (name,alive,eatenBy) VALUES ('+nome+',1,NULL)';
   	db.query(query, function(err, result) {
     	if (err)  { 
@@ -74,7 +74,7 @@ router.post('/', function(req, res) {
 });
 
 
-/* DELETE uma pessoa */	
+/* DELETE uma pessoa */
 router.delete('/:id', function(req, res) {
   	var id = db.escape(req.params.id);
   	var query = 'DELETE FROM person WHERE id = ' + id;
